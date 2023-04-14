@@ -1,10 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Hello Extension of the world!",
-  "description": "Base Level Extension",
+  "name": "Reading time",
   "version": "1.0",
-  "action": {
-    "default_popup": "popup/hello.html",
-    "default_icon": "images/hello_extensions.png"
-  }
+  "description": "Add the reading time to Chrome Extension documentation articles"
 }
