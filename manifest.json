@@ -8,5 +8,8 @@
     "32": "iamges/icon-32.png",
     "48": "iamges/icon-48.png",
     "128": "iamges/icon-128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
   }
 }
