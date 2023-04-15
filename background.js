@@ -1,4 +1,12 @@
-import { chromeDocs, state } from './enums';
+const state = {
+  ON  : 'ON',
+  OFF : 'OFF',
+};
+
+const chromeDocs = {
+extensions : 'https://developer.chrome.com/docs/extensions',
+webstore   : 'https://developer.chrome.com/docs/webstore',
+}
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.action.setBadgeText({
@@ -22,5 +30,19 @@ chrome.action.onClicked.addListener(async (tab) => {
       tabId : tabId,
       text  : nextState
     });
+
+    if (nextState === state.ON) {
+      // Insert the CSS file when the user turns the extension on
+      await chrome.scripting.insertCSS({
+        files  : [ 'focus-mode.css' ],
+        target : { tabId : tab.id }
+      });
+    } else if (nextState === state.OFF) {
+      // Remove the CSS when user turns the extension off
+      await chrome.scripting.removeCSS({
+        files  : [ 'focus-mode.css' ],
+        target : { tabId : tab.id }
+      });
+    }
   }
 });
