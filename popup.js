@@ -36,7 +36,9 @@ document.querySelector('ul').append(...elements);
 
 const button = document.querySelector('button');
 button.addEventListener('click', async () => {
+  const groupTitle = prompt('Group title: ');
+  
   const tabIds = tabs.map(({ id }) => id);
   const group = await chrome.tabs.group({ tabIds });
-  await chrome.tabGroups.update(group, { title: 'DOCS' });
+  await chrome.tabGroups.update(group, { title: groupTitle });
 });
