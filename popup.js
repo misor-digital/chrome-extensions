@@ -13,7 +13,7 @@ const tabs = await chrome.tabs.query({
 const collator = new Intl.Collator();
 tabs.sort((a, b) => collator.compare(a.title, b.title));
 
-const template = document.getELementById('li_template');
+const template = document.getElementById('li_template');
 const elements = new Set();
 for (const tab of tabs) {
   const title    = tab.title.split('-')[0].trim();
