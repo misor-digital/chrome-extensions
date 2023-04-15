@@ -27,7 +27,7 @@ chrome.action.onClicked.addListener(async (tab) => {
 
     // Set the action badge to the next state
     await chrome.action.setBadgeText({
-      tabId : tabId,
+      tabId : tab.id,
       text  : nextState
     });
 
